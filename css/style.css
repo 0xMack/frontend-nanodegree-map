@@ -41,7 +41,6 @@ body {
       1px -1px 0 #000,
       -1px 1px 0 #000,
        1px 1px 0 #000;
-
 }
 
 .list {
@@ -63,8 +62,9 @@ input {
   height: 100%;
 	padding: 0 5px;
 	font: normal 1.2rem/2 Tahoma;
-	border-radius: 2px;
-	border: ridge #0099ff;
+	border-radius: 1px;
+  border-bottom-color: #0099ff;
+  border-bottom-style: ridge;
 }
 
 input:focus {
@@ -155,15 +155,5 @@ li:hover {
 	.bar,
 	#map {
 		width: 80%;
-	}
-}
-@media screen and (min-width: 2000px) {
-	.name,
-	.list {
-		width: 15%;
-	}
-	.bar,
-	#map {
-		width: 85%;
 	}
 }

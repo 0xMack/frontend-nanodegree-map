@@ -20,7 +20,7 @@
       <!-- Create the list of venues -->
 			<div class="list">
 					<ul data-bind="foreach: displayVenues">
-						<li data-bind="text: name, event:{click: info, mouseover: bounce}"></li>
+						<li data-bind="text: name, event:{click: function(){bounce();info()}, mouseover: bounce}"></li>
 					</ul>
 			</div>
 

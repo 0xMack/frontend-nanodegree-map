@@ -1,4 +1,4 @@
-'use strict'; //Enable strict because I prefer error messages over bugs! 
+'use strict'; //Enable strict because I prefer error messages over bugs!
 //Global scope map and venue info window
 var map;
 var venueWindow;
@@ -67,7 +67,7 @@ var MapViewModel = function() {
         var contact = data.venue.contact.formattedPhone;
 
         //Validate the data to make sure Foursquare has a listed contact
-        if(contact == undefined){
+        if(contact === undefined){
           contact = "--";
         }
 
@@ -92,7 +92,8 @@ var MapViewModel = function() {
             venue.info();
             venue.bounce();
         });
-    };
+
+    }
 
     self.displayVenues = ko.computed(function() {
         return self.venues().filter(function(venue) {
@@ -105,11 +106,11 @@ var MapViewModel = function() {
             }
         });
     });
-}
+};
 
 var myModel = {
     viewModel: new MapViewModel()
-}
+};
 
 // Initialize the map to our starting location (Halifax)
 function initMap() {
@@ -122,10 +123,10 @@ function initMap() {
 
 
 function onMapError() {
-	document.getElementsByClassName('map')[0].innerHTML = '<div class="google-error">There was a problem loading Google Maps!</div>';
+	document.getElementById('map')[0].innerHTML = '<div class="google-error">There was a problem loading Google Maps!</div>';
 }
 
 var onMapSuccess = function() {
     initMap();
     ko.applyBindings(myModel.viewModel);
-}
+};

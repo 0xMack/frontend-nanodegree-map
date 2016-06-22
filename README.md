@@ -3,8 +3,11 @@
 ## Project Description
 This is a project completed for the Udacity Frontend Web Development Nanodegree.
 
-## Install Instructions
-Simply download the files and open index.html in your browser.
+## How to Use
+1. Simply download the files and open index.html in your browser.
+2. Click on any of the venues from the side-bar list or click on the marker on the map to show it's venue info.
+3. You can filter which venues you see by typing in the name (or the start of a name), in the filter bar at the top of the screen.
+4. Move around the map and zoom in on interesting locations!
 
 ### Extra Features
 For full list of default features, check out the criteria section below. These are just some of the features specific to my implementation and APIs used.

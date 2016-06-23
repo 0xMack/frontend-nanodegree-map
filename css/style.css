@@ -16,6 +16,9 @@ body {
 	display: flex;
 	flex-wrap: wrap;
 }
+.markerInfo {
+
+}
 
 .name,
 .list {
@@ -129,19 +132,6 @@ li:hover {
   }
 }
 
-@media screen and (min-width: 800px) {
-	html {
-		font-size: 80%;
-	}
-	.name,
-	.list {
-		width: 20%;
-	}
-	.search-bar,
-	#map {
-		width: 80%;
-	}
-}
 @media screen and (min-width: 1100px) {
 	html {
 		font-size: 100%;

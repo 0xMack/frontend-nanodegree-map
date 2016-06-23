@@ -1,5 +1,5 @@
 'use strict';
-
+//Global scope map and venue info window
 var map;
 var venueWindow;
 
@@ -24,27 +24,26 @@ VenueModel.prototype.bounce = function() {
 	}, 1400);
 };
 
-
+//Info functionality for when a marker is selected for a given location
 VenueModel.prototype.info = function() {
-  var contentString = '<div class="markerInfo"><p id="locationName">' +
-      this.name() + '</p><p id="locationAddress">' + this.contact +
-      '</p><p id="locationDescription">' + this.address;
+  var contentString = '<div class="markerInfo"><p id="locationName">' + this.name() + '</p><p id="locationAddress">' + this.contact + '</p><p id="locationDescription">' + this.address;
   venueWindow.setContent(contentString);
   venueWindow.open(map, this.marker);
 };
 
 var MapViewModel = function() {
+    //Using the self method discussed in Udacity videos
     var self = this;
     self.venues = ko.observableArray([]);
     self.keyword = ko.observable('');
     self.foursquareVenues = ko.observableArray([]);
-    var foursquareUrl = "https://api.foursquare.com/v2/venues/explore" + "?client_id=2BIWS0KFSP1W12ARXFHNA20WHNGY0NMOAD3AFYM1ZGCFCF32" + "&client_secret=I2F4TTJ0HJOIAO2GCPP0T2NJBMMHFVMCLAQ4HIHF5U1JZCNG" + "&v=20160620";
+    //Concatenate the url for foursquare with the client_id and secret
+    var foursquareUrl = "https://api.foursquare.com/v2/venues/explore" + "?client_id=3WKW42JI3LWDD4KXDYSRARZQLEINDCRC4BRIPZ5FXQX1U54P" + "&client_secret=OSEQ0DIZOQPK4UTT1N4LZ4IWLJZXFQ1ENOS33MS1VTPOSDI3" + "&v=20160620";
 
+    //Get foursquare location data for Dalhousie area in halifax
     $.getJSON(foursquareUrl, {
         ll: '44.636348, -63.591832',
         limit: 100,
-        section: '',
-        v: '20160620',
         radius: 1000
     }).done(function(data) {
         self.foursquareVenues(data.response.groups[0].items);
@@ -54,7 +53,7 @@ var MapViewModel = function() {
             createVenues(self.foursquareVenues()[i]);
         }
         map.fitBounds(self.bounds);
-    }).fail(function(jqXHR, status, error) {
+    }).fail(function(jqXHR, status, error) {//JQuery error handling
         alert("There was an error retrieving venue data from Foursquare");
     });
 
@@ -64,13 +63,19 @@ var MapViewModel = function() {
         var position = new google.maps.LatLng(lat, lng);
 
         var name = data.venue.name;
-        var address = data.venue.location.formattedAddress ;
+        var address = data.venue.location.formattedAddress;
         var contact = data.venue.contact.formattedPhone;
+
+        //Validate the data to make sure Foursquare has a listed contact
+        if(contact == undefined){
+          contact = "--";
+        }
 
         self.bounds.extend(position);
         map.fitBounds(self.bounds);
         map.setCenter(self.bounds.getCenter());
 
+        //Create new map markers
         var marker = new google.maps.Marker({
             map: map,
             position: position,
@@ -82,6 +87,7 @@ var MapViewModel = function() {
 
         self.venues.push(venue);
         marker.addListener('click', function(){
+          //Map will center around clicked marker as well as making the marker bounce and show its info
             map.panTo(position);
             venue.info();
             venue.bounce();

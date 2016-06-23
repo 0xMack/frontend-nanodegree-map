@@ -29,3 +29,5 @@ Provide a filter option that uses an input field to filter both the list view an
 ## References and APIs
 - https://developers.google.com/maps/documentation/javascript/tutorials/importing_data
 - https://developers.google.com/maps/documentation/javascript/examples/marker-animations
+- http://api.jquery.com/jquery.ajax/
+- https://foursquare.com/

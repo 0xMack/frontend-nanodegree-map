@@ -1,4 +1,4 @@
-'use strict';
+'use strict'; //Enable strict because I prefer error messages over bugs! 
 //Global scope map and venue info window
 var map;
 var venueWindow;

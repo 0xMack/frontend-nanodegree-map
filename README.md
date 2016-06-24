@@ -1,10 +1,19 @@
 
-# Neighborhood Map
+# Udacity Project 5 - Neighborhood Map
 ## Project Description
 This is a project completed for the Udacity Frontend Web Development Nanodegree.
+
 ## Install Instructions
 Simply download the files and open index.html in your browser.
-## Neighborhood Map Project Criteria
+
+### Extra Features
+For full list of default features, check out the criteria section below. These are just some of the features specific to my implementation and APIs used.
+- Animation added to markers for bouncing on marker click and list item hover
+- Drop animation added to all markers when the page is loaded.
+- Foursquare API used to automatically pull venue data for the area around Dalhousie University. No need to hardcode locations!
+- Venue information is appended to the popup window that appears when you click on a list item or marker.
+
+## Criteria
 1. Review our course JavaScript Design Patterns.
 
 2. Download the Knockout framework. Knockout must be used to handle list, filter, and any other information on the page that is subject to changing state. Things that should not be handled by knockout: anything the map api is used for, creating  markers, tracking their click events, making the map, refreshing the map.
@@ -27,6 +36,7 @@ Provide a filter option that uses an input field to filter both the list view an
 10. Error Handling: In case of error (e.g. in a situation where a third party api does not return the expected result) we expect your webpage to do one of the following: A message is displayed notifying the user that the data can't be loaded, OR There are no negative repercussions to the UI. Note: Please note that we expect students to handle errors if the browser has trouble initially reaching the 3rd-party site as well. For example, imagine a user is using your neighborhood map, but her firewall prevents her from accessing the Instagram servers. Here is a reference article on how to block websites with the hosts file. It is important to handle errors to give users a consistent and good experience with the webpage. Read this blogpost to learn more .Some JavaScript libraries provide special methods to handle errors. For example: refer to .fail() method discussed here if you use jQuery's ajax() method. We strongly encourage you to explore ways to handle errors in the library you are using to make API calls.
 
 ## References and APIs
+- https://www.udacity.com/ -- Javascript Design Patterns was very helpful for MVVM and data-bindings
 - https://developers.google.com/maps/documentation/javascript/tutorials/importing_data
 - https://developers.google.com/maps/documentation/javascript/examples/marker-animations
 - http://api.jquery.com/jquery.ajax/
